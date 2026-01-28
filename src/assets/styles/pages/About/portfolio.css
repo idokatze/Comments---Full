@@ -1,0 +1,112 @@
+/* PortfolioSection.css */
+
+.portfolio-row {
+    width: 100%;
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+    padding-inline: clamp(1rem, 3vw, 2rem);
+    background-color: var(--color-b3);
+
+    h2 {
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--color-b2);
+    }
+}
+
+.portfolio-container {
+    max-width: clamp(700px, 80vw, 1110px);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 3vw, 2rem);
+    justify-items: center;
+}
+
+/* Portfolio Item */
+.portfolio-item {
+    max-width: 300px; /* max width for each item */
+    width: 100%; /* allow items to shrink */
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    cursor: pointer;
+    background-color: black;
+
+    img {
+        padding: 1em;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.05);
+    }
+
+    /* Overlay */
+    .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover .portfolio-overlay {
+        opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+        margin-bottom: 0.5rem;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+    }
+
+    .portfolio-overlay p {
+        font-size: clamp(1rem, 1.8vw, 1.2rem);
+        margin-bottom: 1rem;
+    }
+
+    .portfolio-overlay a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+        color: white;
+        background-color: #ff6b6b;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+
+    .portfolio-overlay a:hover {
+        background-color: #ff3b3b;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    .portfolio-overlay h3 {
+        font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    }
+
+    .portfolio-overlay p {
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+    }
+}

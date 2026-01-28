@@ -1,0 +1,22 @@
+.app-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var( --color-n3);
+    padding-inline: 1em;
+}
+
+.app-header nav a {
+    padding: 0.25em 0.5em;
+    font-weight: bold;
+
+    &:hover {
+        color: var(--color-b3);
+    }
+
+    &.active {
+        border-bottom: 2px solid var(--color-b3);
+    }
+}

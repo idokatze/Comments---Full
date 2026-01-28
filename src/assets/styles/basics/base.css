@@ -1,0 +1,112 @@
+/* ===========================
+   BASE.CSS — Global Defaults
+   =========================== */
+
+/* FONT FAMILY */
+body {
+  font-family: 'MerriweatherSans', sans-serif;
+  font-weight: 400; /* normal */
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Default headings (optional, matches your spec) */
+h1,
+h2,
+h3 {
+    font-family: 'MerriweatherSans', sans-serif;
+    font-weight: 700;
+}
+
+.pill-btn {
+    padding: 0.6em 1.2em;
+    border: none;
+    border-radius: 999px;
+    font-size: 1em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    background: none;
+    color: inherit;
+    outline: none;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.3em;
+    font-weight: 500;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.input {
+    padding: 0.6em 0.9em;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    outline: none;
+    background: none;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:focus {
+        border-color: #4caf50;
+        box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+    }
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 420px;
+}
+
+.card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.card-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.has-accent {
+    > * {
+        padding-top: 2.5rem;
+    }
+
+    .accent-target {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-color, var(--color-b1));
+        }
+    }
+}

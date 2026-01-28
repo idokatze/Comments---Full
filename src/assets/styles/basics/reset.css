@@ -1,0 +1,70 @@
+/* ===========================
+   RESET.CSS — Modern Reset
+   =========================== */
+
+/* 1. Remove all default margins */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Improve text rendering */
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Remove list styles */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 4. Remove link underlines */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 5. Make images behave */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 6. Make form elements inherit fonts */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* 7. Remove button defaults */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* 8. Prevent text overflow issues */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* 9. Create a root stacking context */
+#root,
+#__next {
+    isolation: isolate;
+}

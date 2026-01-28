@@ -1,0 +1,20 @@
+:root {
+    /* COLOR SET A */
+    --color-a1: #014e56; /* Midnight Green */
+    --color-a2: #f67e7e; /* Light Coral */
+    --color-a3: #ffffff; /* White */
+
+    /* COLOR SET B */
+    --color-b1: #79c8c7; /* Rapture Blue  */
+    --color-b2: #4fa3a3; /* Soft Teal */
+    --color-b3: #2c6269; /* Police Blue  */
+    --color-b4: #014047; /* Deep Teal */
+    --color-b5: #002529; /* Dark Green */
+
+    /* NEUTRALS */
+    --color-n1: #f8f9fa; /* very light gray / almost white */
+    --color-n2: #e0e0e0; /* light gray */
+    --color-n3: #b0b0b0; /* medium gray */
+    --color-n4: #6b6b6b; /* dark gray */
+    --color-n5: #2c2c2c; /* very dark gray / almost black */
+}
