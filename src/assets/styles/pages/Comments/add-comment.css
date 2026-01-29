@@ -1,0 +1,43 @@
+/* add-comment.css */
+
+.add-container {
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+}
+
+.add-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--color-n3);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.add-comment input,
+.add-comment textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--color-n2);
+    border-radius: 6px;
+}
+
+.add-comment button {
+    align-self: flex-end;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-a2);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-comment button:hover {
+    background-color: var(--color-b2);
+}

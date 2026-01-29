@@ -1,0 +1,30 @@
+/* comments.css */
+
+@import 'comment-list.css';
+@import 'add-comment.css';
+
+/* comments.css */
+
+/* comments.css */
+
+.comments-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: var(--color-b2);
+}
+
+.comment-index {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--color-b3);
+    padding: 1em;
+    border-radius: 10px;
+}
