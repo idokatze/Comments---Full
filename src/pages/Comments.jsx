@@ -6,14 +6,15 @@ import { useEffect, useState } from 'react'
 
 export function Comments() {
     const [comments, setComments] = useState([])
+    const [filterBy, setFilterBy] = useState({ txt: '' })
 
     useEffect(() => {
         loadComments()
-    }, [])
+    }, [filterBy])
 
     async function loadComments() {
         try {
-            const comments = await commentService.query()
+            const comments = await commentService.query(filterBy)
             setComments(comments)
         } catch (error) {
             console.log('Could not load comments')
@@ -33,7 +34,7 @@ export function Comments() {
         <main className="comments-page">
             <div className="comment-index">
                 <AddComment onAdd={onAdd} />
-                <CommentFilter />
+                <CommentFilter onSetFilter={setFilterBy} />
                 <CommentList comments={comments} />
             </div>
         </main>

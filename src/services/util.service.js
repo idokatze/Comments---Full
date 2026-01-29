@@ -1,15 +1,15 @@
 export const utilService = {
     makeId,
-    makeLorem,
+    sortBy,
     getRandomIntInclusive,
-    loadFromStorage,
-    saveToStorage,
-    animateCSS,
+    shuffleArray,
     debounce,
+    saveToStorage,
+    loadFromStorage,
     hash,
 }
 
-function makeId(length = 6) {
+export function makeId(length = 6) {
     var txt = ''
     var possible =
         'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -21,83 +21,68 @@ function makeId(length = 6) {
     return txt
 }
 
-function makeLorem(size = 100) {
-    var words = [
-        'The sky',
-        'above',
-        'the port',
-        'was',
-        'the color of television',
-        'tuned',
-        'to',
-        'a dead channel',
-        '.',
-        'All',
-        'this happened',
-        'more or less',
-        '.',
-        'I',
-        'had',
-        'the story',
-        'bit by bit',
-        'from various people',
-        'and',
-        'as generally',
-        'happens',
-        'in such cases',
-        'each time',
-        'it',
-        'was',
-        'a different story',
-        '.',
-        'It',
-        'was',
-        'a pleasure',
-        'to',
-        'burn',
-    ]
-    var txt = ''
-    while (size > 0) {
-        size--
-        txt += words[Math.floor(Math.random() * words.length)] + ' '
-    }
-    return txt
+export function sortBy(array, isAscen, key, key2) {
+    //key is not neccesery if not an obj.
+    const sortedArray = [...array]
+
+    sortedArray.sort((a, b) => {
+        let itemA
+        let itemB
+        if (key2) {
+            itemA = a[key]?.[key2]
+            itemB = b[key]?.[key2]
+        } else if (key) {
+            itemA = a[key]
+            itemB = b[key]
+        } else {
+            itemA = a
+            itemB = b
+        }
+
+        if (typeof itemA === 'number' && typeof itemB === 'number') {
+            return isAscen ? itemA - itemB : itemB - itemA
+        }
+
+        return isAscen
+            ? String(itemA).localeCompare(String(itemB))
+            : String(itemB).localeCompare(String(itemA))
+    })
+    return sortedArray
 }
 
-function getRandomIntInclusive(min, max) {
+export function getRandomInt(min, max) {
+    const minCeiled = Math.ceil(min)
+    const maxFloored = Math.floor(max)
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled) // The maximum is exclusive and the minimum is inclusive
+}
+
+export function getRandomIntInclusive(min, max) {
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive
 }
 
-function saveToStorage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value))
+export function randomPastTime() {
+    const HOUR = 1000 * 60 * 60
+    const DAY = 1000 * 60 * 60 * 24
+    const WEEK = 1000 * 60 * 60 * 24 * 7
+
+    const pastTime = getRandomIntInclusive(HOUR, WEEK)
+    return Date.now() - pastTime
 }
 
-function loadFromStorage(key) {
-    const data = localStorage.getItem(key)
-    return data ? JSON.parse(data) : undefined
+export function shuffleArray(array) {
+    let arr = [...array]
+
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[arr[i], arr[j]] = [arr[j], arr[i]]
+    }
+
+    return arr
 }
 
-// In our utilService
-function animateCSS(el, animation) {
-    const prefix = 'animate__'
-    return new Promise((resolve, reject) => {
-        const animationName = `${prefix}${animation}`
-
-        el.classList.add(`${prefix}animated`, animationName)
-
-        // When the animation ends, we clean the classes and resolve the Promise
-        function handleAnimationEnd(event) {
-            event.stopPropagation()
-            el.classList.remove(`${prefix}animated`, animationName)
-            resolve('Animation ended')
-        }
-        el.addEventListener('animationend', handleAnimationEnd, { once: true })
-    })
-}
-
-function debounce(func, timeout = 300) {
+export function debounce(func, timeout = 300) {
     let timer
     return (...args) => {
         clearTimeout(timer)
@@ -105,6 +90,15 @@ function debounce(func, timeout = 300) {
             func.apply(this, args)
         }, timeout)
     }
+}
+
+export function saveToStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value))
+}
+
+export function loadFromStorage(key) {
+    const data = localStorage.getItem(key)
+    return data ? JSON.parse(data) : undefined
 }
 
 function hash(str) {
